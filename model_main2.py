@@ -63,17 +63,7 @@ d = torch.load("/g813_u1/mkj/twice_attention_networks-main/ta-network-main/Ay.pt
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-'''
-E1,E11,E2,E22,E3,E33=em_param(x,y,a,b)
 
-
-E1=E1.to(device)
-E11=E11.to(device)
-E2=E2.to(device)
-E22=E22.to(device)
-E3=E3.to(device)
-E33=E33.to(device)
-'''
 
 model_cls = cqt_mgd(BasicBlock, [2, 2, 2, 2],num_classes=n_classes,emb_dim1=embedding_dim1,emb_dim2=embedding_dim2,T=a,Q=b,Ax=c,Ay=d)
 
