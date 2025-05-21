@@ -1,4 +1,4 @@
-# Twice Attention Networks for Synthetic Speech Detection
+# ADFN
 
 ## Detection
 
