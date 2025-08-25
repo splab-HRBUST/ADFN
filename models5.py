@@ -51,7 +51,20 @@ class cqt_mgd(nn.Module):
         
         self.Ax=torch.nn.Parameter(Ax)
         self.Ay=torch.nn.Parameter(Ay)
-        
+        self.A_x = nn.Linear(512, 512)
+        #nn.init.xavier_normal_(self.A_x.weight, gain=1.0)
+        nn.init.kaiming_normal_(
+            self.A_x.weight, 
+            mode='fan_in',      # 适应前向传播
+            nonlinearity='relu' # 指定激活函数
+            )
+        self.A_y = nn.Linear(512, 512)
+        #nn.init.xavier_normal_(self.A_y.weight, gain=1.0)
+        nn.init.kaiming_normal_(
+            self.A_y.weight, 
+            mode='fan_in',      # 适应前向传播
+            nonlinearity='relu' # 指定激活函数
+            )
         '''
         self.T=torch.nn.Parameter(torch.transpose(T,dim0=0,dim1=1))
         self.Q=torch.nn.Parameter(torch.transpose(Q,dim0=0,dim1=1))
